@@ -6,6 +6,8 @@ import com.example.demo.entity.Location;
 import com.example.demo.service.LocationService;
 @Service
 public class LocationServiceImpl implements LocationService{
+   
+
+
     
-    Location createLocation(Location location);
 }
