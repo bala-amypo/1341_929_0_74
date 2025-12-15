@@ -7,6 +7,6 @@ import com.example.demo.entity.StudentEntity;
 public interface StudentService {
     StudentEntity postdata(StudentEntity stu);
     List<StudentEntity> getall();
-    StudentEntity updatedata(int id,StudentEntity stu);
-     String deletedata(int id);
+    StudentEntity updatedata(Long id,StudentEntity stu);
+     String deletedata(Long id);
 }

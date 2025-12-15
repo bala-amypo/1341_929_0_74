@@ -23,12 +23,11 @@ public class StudentServiceImpl implements StudentService{
       public List<StudentEntity> getall(){
         return sturepo.findAll();
       }
-      
+
       @Override
      public StudentEntity updatedata(Long id,StudentEntity stu){
      if(sturepo.existsById(id)){
       StudentEntity obj=sturepo.findById(id).get();
-
         obj.setName(stu.getName());
         obj.setEmail(stu.getEmail());
         obj.setAge(stu.getAge());
@@ -44,6 +43,7 @@ public class StudentServiceImpl implements StudentService{
         sturepo.deleteById(id);
         return "deleted Sucessfully";
      }
+     return "not Found" + id;
     }
 
 
