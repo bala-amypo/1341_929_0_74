@@ -11,17 +11,19 @@ import com.example.demo.service.LocationService;
 @Service
 public class LocationServiceImpl implements LocationService{
    
-    @Autowired LocationRepository location;
+    @Autowired LocationRepository loc;
 
 
  public Location createLocation(Location location){
-    if(location)
-    return location.save(location);
+    if(location.getLatitude()>90){
+        throw new IllegalArgumentException("latitude");
+    }
+    return loc.save(location);
     
 
  }
  public List<Location> getAllLocations(){
-
+  return loc.findAll();
  }
 
 
