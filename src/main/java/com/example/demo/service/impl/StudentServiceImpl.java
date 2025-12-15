@@ -19,10 +19,18 @@ public class StudentServiceImpl implements StudentService{
         return sturepo.save(stu);
 
       }
+      @Override
       public List<StudentEntity> getall(){
         return sturepo.findAll();
       }
-      public 
+      @Override
+     public StudentEntity updatedata(int id,StudentEntity stu);
+     if(sturepo.existById(id)){
+      StudentEntity obj=sturepo.findById(id).get();
+
+        obj.setName(obj.getName());
+        obj.setEmail(o);
+     }
 
 
 
