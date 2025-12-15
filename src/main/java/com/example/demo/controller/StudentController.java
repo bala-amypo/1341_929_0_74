@@ -29,6 +29,6 @@ public class StudentController {
     }
 
     @PutMapping("/put/{id}")
-    putblic StudentEntity
+    putblic StudentEntity puts(@pathVariable)
     
 }
