@@ -1,5 +1,7 @@
 package com.example.demo.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,10 @@ public class StudentServiceImpl implements StudentService{
         return sturepo.save(stu);
 
       }
-      public List<
+      public List<StudentEntity> getall(){
+        return sturepo.findAll();
+      }
+      public 
 
 
 
