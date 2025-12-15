@@ -23,8 +23,9 @@ public class StudentServiceImpl implements StudentService{
       public List<StudentEntity> getall(){
         return sturepo.findAll();
       }
+      
       @Override
-     public StudentEntity updatedata(int id,StudentEntity stu){
+     public StudentEntity updatedata(Long id,StudentEntity stu){
      if(sturepo.existsById(id)){
       StudentEntity obj=sturepo.findById(id).get();
 
@@ -38,9 +39,9 @@ public class StudentServiceImpl implements StudentService{
      }
 
      @Override
-     public String deletedata(int id){
+     public String deletedata(Long id){
      if(sturepo.existsById(id)){
-        sturepo.deleteById(null);(id);
+        sturepo.deleteById(id);
         return "deleted Sucessfully";
      }
     }
