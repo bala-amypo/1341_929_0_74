@@ -24,14 +24,26 @@ public class StudentServiceImpl implements StudentService{
         return sturepo.findAll();
       }
       @Override
-     public StudentEntity updatedata(int id,StudentEntity stu);
-     if(sturepo.existById(id)){
+     public StudentEntity updatedata(int id,StudentEntity stu){
+     if(sturepo.existsById(id)){
       StudentEntity obj=sturepo.findById(id).get();
 
-        obj.setName(obj.getName());
-        obj.setEmail(o);
+        obj.setName(stu.getName());
+        obj.setEmail(stu.getEmail());
+        obj.setAge(stu.getAge());
+        return sturepo.save(obj);
+
+     }
+     return stu;
      }
 
+     @Override
+     public String deletedata(int id){
+     if(sturepo.existsById(id)){
+        sturepo.deleteById(null);(id);
+        return "deleted Sucessfully";
+     }
+    }
 
 
 
