@@ -27,11 +27,11 @@ public class StudentServiceImpl implements StudentService{
       @Override
      public StudentEntity updatedata(Long id,StudentEntity stu){
      if(sturepo.existsById(id)){
-        
+        stu.setId(id);
         return sturepo.save(stu);
 
      }
-     return stu;
+     return null;
      }
 
      @Override
