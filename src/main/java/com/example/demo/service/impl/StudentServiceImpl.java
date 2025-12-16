@@ -27,11 +27,8 @@ public class StudentServiceImpl implements StudentService{
       @Override
      public StudentEntity updatedata(Long id,StudentEntity stu){
      if(sturepo.existsById(id)){
-      StudentEntity obj=sturepo.findById(id).get();
-        obj.setName(stu.getName());
-        obj.setEmail(stu.getEmail());
-        obj.setAge(stu.getAge());
-        return sturepo.save(obj);
+        
+        return sturepo.save(stu);
 
      }
      return stu;
