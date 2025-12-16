@@ -3,32 +3,41 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.entity.StudentEntity;
 import com.example.demo.service.StudentService;
 
 @RestController
+@RequestMapping("/students")
 public class StudentController {
 
-    @Autowired StudentService stu;
+    @Autowired
+    private StudentService studentService;
 
-    @PostMapping("/post")
-    public StudentEntity posts(@RequestBody StudentEntity stu){
-        return stu.postdata(stu);
-
-    }
-    @GetMapping("/gets")
-    public List <StudentEntity> gets(){
-        return stu.getall();
-
+    // 1️⃣ Create Student
+    @PostMapping("/save")
+    public StudentEntity saveStudent(@RequestBody StudentEntity student) {
+        return studentService.postdata(student);
     }
 
-    @PutMapping("/put/{id}")
-    putblic StudentEntity puts(@pathVariable)
-    
+    // 2️⃣ Get All Students
+    @GetMapping("/all")
+    public List<StudentEntity> getAllStudents() {
+        return studentService.getall();
+    }
+
+    // 3️⃣ Update Student
+    @PutMapping("/update/{id}")
+    public StudentEntity updateStudent(
+            @PathVariable Long id,
+            @RequestBody StudentEntity student) {
+        return studentService.updatedata(id, student);
+    }
+
+    // 4️⃣ Delete Student
+    @DeleteMapping("/delete/{id}")
+    public String deleteStudent(@PathVariable Long id) {
+        return studentService.deletedata(id);
+    }
 }
