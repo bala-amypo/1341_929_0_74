@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entity.StudentEntity;
+import com.example.demo.repository.StudentRepo;
+import com.example.demo.service.StudentService;
 
 
 @Service
@@ -18,7 +20,7 @@ public class StudentServiceImpl  implements StudentService {
 @Autowired StudentRepo repo;
 
 @Override
-  StudentEntity postdata(StudentEntity stu);{
+  public StudentEntity postdata(StudentEntity stu){
    return repo.save(stu);
  }
  @Override
@@ -26,7 +28,7 @@ public class StudentServiceImpl  implements StudentService {
      return repo.findAll();
     }
     @Override
-   public  Student updatedata(int id,Student std){
+   public  StudentEntity updatedata(int id,StudentEntity std){
     
      if(repo.existsById(id)){
         std.setId(id);
